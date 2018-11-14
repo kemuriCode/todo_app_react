@@ -1,13 +1,14 @@
 import React from 'react';
 
- const NewTodoForm = (props) => {
-     return (
-        <form onSubmit={props.formSubmitted}>
-        <label htmlFor="newTodo">New Todo</label>
-        <input onChange={props.newTodoChanged} id="newTodo" name="newTodo" value={props.newTodo} />
-        <button type="submit">Add Todo</button>
-      </form>
-     )
+ const TodoItem = (props) => {
+     const { todo, index } = props;
+     return  (
+            <li>
+              <input onChange={(event) => props.toggleTodoDone(event, index)} type="checkbox" checked={props.todo.done}/>
+              <span className={todo.done ? 'done' : ''}>{todo.title}</span>
+              <button onClick={() => props.removeTodo(index)}>Remove</button>  
+            </li>
+        );
  };
 
- export default NewTodoForm;
+ export default TodoItem;

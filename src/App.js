@@ -69,7 +69,7 @@ class App extends Component {
         <NewTodoForm
         newTodo={this.state.newTodo} 
         formSubmitted={this.formSubmitted.bind(this)} 
-        newTodoChanged={this.newTodoChanged.bind.bind(this)}/>
+        newTodoChanged={this.newTodoChanged.bind(this)}/>
         <button onClick={() => this.allDone()}>All Done</button>
         <TodoList 
           todos={this.state.todos}
